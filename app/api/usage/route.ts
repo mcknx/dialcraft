@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
       success: true,
       data: usageHistory,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch usage data' },
       { status: 500 }
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
       data: recordedUsage,
       message: 'Usage recorded successfully',
     }, { status: 201 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to record usage' },
       { status: 500 }

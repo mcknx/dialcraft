@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       success: true,
       data: subscription,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch subscription' },
       { status: 500 }
@@ -63,7 +63,7 @@ export async function PATCH(request: NextRequest) {
       data: updatedSubscription,
       message: 'Subscription updated successfully',
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to update subscription' },
       { status: 500 }

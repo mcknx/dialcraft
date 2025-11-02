@@ -10,7 +10,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [activeTab, setActiveTab] = useState('dashboard');
 
-  const NavItem = ({ id, icon: Icon, label }: { id: string; icon: any; label: string }) => (
+  const NavItem = ({ id, icon: Icon, label }: { id: string; icon: React.ComponentType<{ className?: string }>; label: string }) => (
     <button
       onClick={() => setActiveTab(id)}
       className={`w-full flex items-center gap-3 py-3 px-4 rounded-lg transition-colors ${
@@ -103,7 +103,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="p-4 md:p-8">
           {React.Children.map(children, child => {
             if (React.isValidElement(child)) {
-              return React.cloneElement(child, { activeTab } as any);
+              return React.cloneElement(child, { activeTab } as React.Attributes);
             }
             return child;
           })}

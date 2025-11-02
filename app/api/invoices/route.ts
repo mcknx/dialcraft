@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       success: true,
       data: invoices,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch invoices' },
       { status: 500 }
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
       data: savedInvoice,
       message: 'Invoice generated successfully',
     }, { status: 201 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to generate invoice' },
       { status: 500 }
